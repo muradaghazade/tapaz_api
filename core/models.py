@@ -45,11 +45,6 @@ class Category(models.Model):
     def __str__(self):
         return self.title
 
-    def save(self, *args, **kwargs):
-        super(Category, self).save(*args, **kwargs)
-        self.slug = slugify(self.title)
-        super(Category, self).save(*args, **kwargs)
-
     class Meta:
         verbose_name = 'Kateqoriya'
         verbose_name_plural = 'Kateqoriyalar'
@@ -67,11 +62,6 @@ class SubCategory(models.Model):
         verbose_name_plural = "Alt kateqoriyalar"
         ordering = ['title']
 
-    def save(self, *args, **kwargs):
-        super(SubCategory, self).save(*args, **kwargs)
-        self.slug = slugify(self.title)
-        super(SubCategory, self).save(*args, **kwargs)
-
     def __str__(self):
         return self.title
 
@@ -86,11 +76,6 @@ class SubSubCategory(models.Model):
         verbose_name = "Alt Alt kateqoriya"
         verbose_name_plural = "Alt Alt kateqoriyalar"
         ordering = ['title']
-
-    def save(self, *args, **kwargs):
-        super(SubSubCategory, self).save(*args, **kwargs)
-        self.slug = slugify(self.title)
-        super(SubSubCategory, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.title
