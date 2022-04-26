@@ -1,5 +1,4 @@
 from django.db import models
-from .common import slugify
 
 
 class Product(models.Model):
